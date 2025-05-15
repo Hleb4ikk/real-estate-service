@@ -3,33 +3,25 @@
 import './App.css';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useTheme } from './providers/ThemeProvider';
-import { useLayoutEffect, useEffect } from 'react';
-import { themes } from '../shared/components/themes';
-import Switch from '../shared/components/Switch/Switch.tsx';
+import Header from '../widgets/header/Header';
+import Footer from '../widgets/footer/Footer';
+import HomePage from '../pages/HomePage/HomePage';
+import CatalogPage from '../pages/CatalogPage/CatalogPage';
 
 const App = () => {
-  const [theme, setTheme] = useTheme();
-
-  function handleSwitch(value) {
-    setTheme(value);
-    localStorage.setItem('theme', value);
-  }
-  document.body.style.backgroundColor = themes[theme].background;
-  document.body.style.color = themes[theme].text;
-
   return (
     <div className="App">
-      <Switch handleSwitch={handleSwitch} />
       <BrowserRouter>
+        <Header />
+
         <Routes>
           <Route
             path="/"
-            element={<h1>You are on the home page!</h1>}
+            element={<HomePage />}
           />
           <Route
             path="/catalog"
-            element={<h1>Catalog</h1>}
+            element={<CatalogPage />}
           />
           <Route
             path="/registration"
@@ -60,6 +52,8 @@ const App = () => {
             element={<h1>404</h1>}
           />
         </Routes>
+
+        <Footer />
       </BrowserRouter>
     </div>
   );

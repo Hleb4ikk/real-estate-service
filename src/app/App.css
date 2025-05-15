@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-ul[class],
-ol[class] {
+ul,
+ol,
+button {
   padding: 0;
 }
 
@@ -15,18 +18,20 @@ h2,
 h3,
 h4,
 p,
-ul[class],
-ol[class],
+ul,
+ol,
 li,
 figure,
 figcaption,
 blockquote,
 dl,
-dd {
+dd,
+button {
   margin: 0;
 }
 
 body {
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.2s;
@@ -36,15 +41,19 @@ body {
   line-height: 1.5;
 }
 
-ul[class],
-ol[class] {
+ul,
+ol {
   list-style: none;
 }
 
-a:not([class]) {
+a {
   text-decoration-skip-ink: auto;
 }
-
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 img {
   max-width: 100%;
   display: block;

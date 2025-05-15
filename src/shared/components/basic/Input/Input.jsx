@@ -1,0 +1,13 @@
+import styles from './Input.module.css';
+
+const Input = ({ className = '', ...props }) => {
+  return (
+    <input
+      type="text"
+      className={`${styles.input} ${className}`}
+      {...props}
+    />
+  );
+};
+
+export default Input;
