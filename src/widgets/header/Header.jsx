@@ -1,8 +1,6 @@
 import styles from './Header.module.css';
-import { NavigationMenu, NavigationItemList } from '../../shared/components/NavigationMenu/NavigationMenu';
-import { navigationItems } from '../../utils/navigation-items';
-import Button from '../../shared/components/basic/Button/Button';
-import Search from '../../shared/components/Search/Search';
+import { NavigationMenu, NavigationItemList } from '../../features/NavigationMenu/NavigationMenu';
+
 export default function Header() {
   return (
     <header className={styles.header}>
@@ -12,7 +10,7 @@ export default function Header() {
       /> */}
 
       <NavigationMenu>
-        <NavigationItemList navigationItems={navigationItems} />
+        <NavigationItemList />
       </NavigationMenu>
       {/* <div className={styles.rightHeaderBlockContainer}>
         <div>

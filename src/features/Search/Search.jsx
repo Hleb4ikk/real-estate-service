@@ -1,7 +1,7 @@
 import styles from './Search.module.css';
 
-import Input from '../basic/Input/Input';
-import Button from '../basic/Button/Button';
+import Input from '../../shared/components/Input/Input';
+import Button from '../../shared/components/Button/Button';
 
 const Search = () => {
   return (
