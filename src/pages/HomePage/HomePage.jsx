@@ -1,4 +1,3 @@
-import { use, useEffect } from 'react';
 import Button from '../../shared/components/Button/Button';
 import useTitleDivision from '../../shared/hooks/useTitleDivision';
 
@@ -7,7 +6,7 @@ export default function HomePage() {
 
   return (
     <main>
-      Helmet You are at the home page <Button>Go</Button>
+      You are at the home page <Button>Go</Button>
     </main>
   );
 }

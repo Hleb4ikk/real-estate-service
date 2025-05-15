@@ -1,3 +1,3 @@
 export const metadata = {
-  title: 'LandLord',
+  title: 'RES',
 };

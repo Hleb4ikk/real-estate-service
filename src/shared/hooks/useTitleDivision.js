@@ -3,13 +3,13 @@
 import { metadata } from '../metadata';
 import { useEffect } from 'react';
 
-const useTitle = (pageTitle) => {
+const useTitleDivision = (pageTitle) => {
   useEffect(() => {
     document.title = `${metadata.title} | ${pageTitle}`;
+    return () => {
+      document.title = metadata.title;
+    };
   }, [pageTitle]);
-  return () => {
-    document.title = metadata.title;
-  };
 };
 
-export default useTitle;
+export default useTitleDivision;

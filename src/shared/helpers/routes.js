@@ -1,5 +1,10 @@
 import HomePage from '../../pages/HomePage/HomePage';
 import CatalogPage from '../../pages/CatalogPage/CatalogPage';
+import AgenciesPage from '../../pages/AgenciesPage/AgenciesPage';
+import ContactsPage from '../../pages/ContactsPage/ContactsPage';
+import AuthenticationPage from '../../pages/AuthenticationPage/AuthenticationPage';
+import ProfilePage from '../../pages/ProfilePage/ProfilePage';
+import SubmitPage from '../../pages/SubmitPage/SubmitPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
 
 export const routes = [
@@ -25,7 +30,7 @@ export const routes = [
       en: 'Agencies',
     },
     path: '/agencies',
-    element: <h1>1</h1>,
+    element: <AgenciesPage />,
   },
   {
     name: {
@@ -33,7 +38,7 @@ export const routes = [
       en: 'Contacts',
     },
     path: '/contacts',
-    element: <h1>2</h1>,
+    element: <ContactsPage />,
   },
   {
     name: {
@@ -41,7 +46,7 @@ export const routes = [
       en: 'Authentication',
     },
     path: '/auth',
-    element: <h1>3</h1>,
+    element: <AuthenticationPage />,
   },
   {
     name: {
@@ -49,7 +54,7 @@ export const routes = [
       en: 'My account',
     },
     path: '/profile',
-    element: <h1>4</h1>,
+    element: <ProfilePage />,
   },
   {
     name: {
@@ -57,7 +62,7 @@ export const routes = [
       en: 'Submit advertisement',
     },
     path: '/submit',
-    element: <h1>5</h1>,
+    element: <SubmitPage />,
   },
   {
     name: {

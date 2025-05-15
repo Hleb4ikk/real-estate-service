@@ -1,3 +1,6 @@
+import useTitleDivision from '../../shared/hooks/useTitleDivision';
+
 export default function CatalogPage() {
-  return <div>You are at the catalog page</div>;
+  useTitleDivision('Catalog');
+  return <div>You are at the CatalogPage</div>;
 }

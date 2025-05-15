@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatarReplacer {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  min-height: 45px;
+  border-radius: 100%;
+  background-color: #aaffff;
+}
+.avatarImg {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  min-height: 45px;
+  border-radius: 100%;
+}
+
+.shortedUsername {
+  position: absolute;
+  color: #fff;
+}
