@@ -1,7 +1,9 @@
-.input {
-  width: 100%;
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 0 10px;
-  font-size: 14px;
+@layer default {
+  .input {
+    width: 100%;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 14px;
+  }
 }

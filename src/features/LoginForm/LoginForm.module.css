@@ -1,0 +1,61 @@
+.loginFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 25px;
+  background: #eeeeee;
+  border-radius: 35px;
+}
+
+.inputField {
+  height: 35px;
+  border: 1px solid #777777;
+  outline: 2px solid #eeeeee;
+  transition: all 0.5s;
+}
+
+.inputField:focus {
+  outline: 2px solid #000088;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+.inputsContainer {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  gap: 15px;
+}
+.formName {
+  font-weight: 700;
+  font-size: 30px;
+}
+.errorMessage {
+  color: red;
+}
+.errorMessage::before {
+  content: '-';
+  margin-right: 10px;
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.submitButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+}

@@ -4,7 +4,7 @@ import styles from './NavigationMenu.module.css';
 import { MenuItem, Menu } from '../../shared/components/Menu/Menu';
 import { useLocation, useNavigate, useParams, useRoutes } from 'react-router-dom';
 import { routes } from '../../shared/helpers/routes';
-import { use, useEffect, useState } from 'react';
+
 const NavigationItem = ({ path, children, className }) => {
   if (!path) {
     throw new Error('NavigationItem must have path');

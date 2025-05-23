@@ -1,0 +1,42 @@
+.authPageContainer {
+  display: flex;
+  align-items: center;
+}
+
+.authFormContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.themeSwitch {
+  box-sizing: border-box;
+  display: flex;
+  position: absolute;
+  right: 32.5px;
+  top: 32.5px;
+}
+
+.leftContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #000088;
+}
+.logo {
+  height: 300px;
+  width: 300px;
+  fill: white;
+}
+
+@media (min-width: 1024px) {
+  .leftContainer {
+    max-width: 720px;
+    border-start-end-radius: 40%;
+    border-end-end-radius: 40%;
+  }
+}

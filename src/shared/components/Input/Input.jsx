@@ -1,9 +1,11 @@
 import styles from './Input.module.css';
 
-const Input = ({ className = '', ...props }) => {
+const Input = ({ id = '', className = '', type = 'text', ref = null, ...props }) => {
   return (
     <input
-      type="text"
+      id={id}
+      type={type}
+      ref={ref}
       className={`${styles.input} ${className}`}
       {...props}
     />

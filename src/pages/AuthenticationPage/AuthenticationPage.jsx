@@ -1,6 +1,23 @@
-import useTitleDivision from '../../shared/hooks/useTitleDivision';
+import styles from './AuthenticationPage.module.css';
 
+import useTitleDivision from '../../shared/hooks/useTitleDivision';
+import Logo from '../../shared/assets/Logo/Logo';
+import ThemeSwitch from '../../features/ThemeSwitch/ThemeSwitch';
+import LoginForm from '../../features/LoginForm/LoginForm';
 export default function AuthenticationPage() {
   useTitleDivision('Authentication');
-  return <div>You are at the AuthenticationPage</div>;
+
+  return (
+    <main className={styles.authPageContainer}>
+      <div className={styles.themeSwitch}>
+        <ThemeSwitch />
+      </div>
+      <div className={styles.leftContainer}>
+        <Logo className={styles.logo} />
+      </div>
+      <div className={styles.authFormContainer}>
+        <LoginForm />
+      </div>
+    </main>
+  );
 }

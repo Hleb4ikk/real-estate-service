@@ -5,8 +5,8 @@ export default function HomePage() {
   useTitleDivision('Home');
 
   return (
-    <main>
+    <h1>
       You are at the home page <Button>Go</Button>
-    </main>
+    </h1>
   );
 }
