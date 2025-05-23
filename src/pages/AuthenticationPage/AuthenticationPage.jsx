@@ -12,8 +12,11 @@ export default function AuthenticationPage() {
       <div className={styles.themeSwitch}>
         <ThemeSwitch />
       </div>
-      <div className={styles.leftContainer}>
+      <div className={styles.logoContainer}>
         <Logo className={styles.logo} />
+        <div className={styles.mobileAuthFormContainer}>
+          <LoginForm />
+        </div>
       </div>
       <div className={styles.authFormContainer}>
         <LoginForm />

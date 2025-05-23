@@ -6,7 +6,8 @@ import SubmitButton from '../../shared/components/SubmitButton/SubmitButton';
 import { validateEmail, validatePassword } from '../../shared/lib/form-validation';
 import { useEffect, useState, useRef } from 'react';
 import Button from '../../shared/components/Button/Button';
-const LoginForm = () => {
+
+const LoginForm = ({ className = '' }) => {
   const [messages, setMessages] = useState(null);
 
   const passwordRef = useRef(null);
@@ -34,22 +35,19 @@ const LoginForm = () => {
   }, [messages]);
 
   return (
-    <div className={styles.loginFormContainer}>
-      <div className={styles.formName}>Вход в аккаунт</div>
+    <div className={`${styles.loginFormContainer} ${className}`}>
+      <h1 className={styles.formName}>Вход </h1>
       <Form
         id="loginForm"
         className={styles.loginForm}
       >
         <div className={styles.inputsContainer}>
-          <label htmlFor="email">
-            Почта:
-            <Input
-              ref={emailRef}
-              id="email"
-              type="email"
-              className={styles.inputField}
-            />
-          </label>
+          <Input
+            ref={emailRef}
+            placeholder="Электронная почта"
+            type="email"
+            className={styles.inputField}
+          />
           {messages?.email?.errors && (
             <ul>
               {messages?.email?.errors?.map((error, index) => (
@@ -62,15 +60,13 @@ const LoginForm = () => {
               ))}
             </ul>
           )}
-          <label htmlFor="password">
-            Пароль:
-            <Input
-              ref={passwordRef}
-              id="password"
-              type="password"
-              className={styles.inputField}
-            />
-          </label>
+
+          <Input
+            ref={passwordRef}
+            placeholder="Пароль"
+            type="password"
+            className={styles.inputField}
+          />
           {messages?.password?.errors && (
             <ul>
               {messages?.password?.errors?.map((error, index) => (
@@ -86,11 +82,11 @@ const LoginForm = () => {
         </div>
 
         <div className={styles.bottomContainer}>
-          <div>
-            Если у вас нету аккаунта, то нажмите <Button type="button">зарегистрироваться</Button>
-          </div>
           <div className={styles.submitButtonContainer}>
             <SubmitButton>Войти</SubmitButton>
+          </div>
+          <div className={styles.registerRedirectRegistrationContainer}>
+            Нету аккаунта? Нажмите <Button type="button">зарегистрироваться</Button>
           </div>
         </div>
       </Form>
