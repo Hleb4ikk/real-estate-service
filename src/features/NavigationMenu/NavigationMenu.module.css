@@ -20,9 +20,9 @@
   background-color: #000088;
   border-radius: 5px;
   transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
 }
 
 .activeLink::after {
+  transition: transform 0.3s ease-in-out;
   transform: scaleX(1);
 }

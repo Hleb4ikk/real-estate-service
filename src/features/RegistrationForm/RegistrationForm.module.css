@@ -51,13 +51,31 @@
   gap: 30px;
   width: 100%;
 }
-.registerRedirectRegistrationContainer button {
+.redirectLoginContainer button {
   color: purple;
   text-decoration: underline;
 }
 .submitButtonContainer {
   display: flex;
   justify-content: center;
+}
+
+.radioInput {
+  width: 15px;
+}
+.roleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.roleContainer > h1 {
+  font-weight: 700;
+}
+.rolePoint {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
 @media (min-width: 1024px) {

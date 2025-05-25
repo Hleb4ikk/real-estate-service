@@ -1,9 +1,3 @@
-.header {
-  margin: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
 .menuContainer {
   display: flex;
   align-items: center;
@@ -12,4 +6,33 @@
 .logo {
   height: 85px;
   width: 85px;
+}
+.logInButton {
+  background: #000088;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color 0.15s;
+  transition: background 0.15s;
+  box-shadow: #000088 0px 0px 1px 1px;
+}
+.logInButton:hover {
+  background: white;
+  color: black;
+}
+.logInButton:active {
+  background: white;
+  color: #777;
+}
+
+.contentContainer {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
 }

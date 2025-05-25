@@ -6,7 +6,16 @@
   *::after {
     box-sizing: border-box;
   }
-
+  #root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  .App {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
   ul,
   ol,
   button {
@@ -29,6 +38,7 @@
   dd,
   button {
     margin: 0;
+    font-size: 16px;
   }
 
   body {
@@ -48,7 +58,9 @@
   }
 
   a {
+    text-decoration: none;
     text-decoration-skip-ink: auto;
+    color: black;
   }
   button {
     background: none;

@@ -1,20 +1,21 @@
 @layer default {
   .button {
-    background: #cccccc;
-    border: 2px solid #bbbbbb;
+    box-sizing: content-box;
+    background: #ff7f50;
+    box-shadow: #ff7645 0 0 3px 2px;
     transition: all 0.15s;
-    width: 125px;
-    height: 40px;
-    border-radius: 5px;
-    font-size: 20px;
+    padding: 0 20px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
   }
   .button:hover {
-    color: white;
-    background: #bbbbbb;
+    color: #cccccc;
   }
 
   .button:active {
-    color: white;
-    background: #cccccc;
+    color: #aaaaaa;
   }
 }

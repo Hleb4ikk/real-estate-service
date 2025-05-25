@@ -1,0 +1,22 @@
+.logo {
+  fill: white;
+  width: 85px;
+  height: 85px;
+}
+
+.footer {
+  background: #000088;
+  box-shadow: #000055 0px 0px 15px 4px;
+  color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+.contentContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,17 +1,16 @@
 const errPasswordMessages = [
-  'Пароль должен содержать не менее 8 символов.',
-  'Пароль должен содержать хотя бы одну заглавную букву.',
-  'Пароль должен содержать хотя бы одну строчную букву.',
-  'Пароль должен содержать хотя бы одну цифру.',
-  'Пароль должен содержать хотя бы один специальный символ (!@#$%^&*).',
-  'Пароль не должен содержать пробелы.',
-  //   'Пароль не должен содержать электронную почту.',
+  'Password must contain at least 8 characters.',
+  'Password must contain at least one uppercase letter.',
+  'Password must contain at least one lowercase letter.',
+  'Password must contain at least one digit.',
+  'Password must contain at least one special character (!@#$%^&*).',
+  'Password must not contain spaces.',
 ];
 const errEmailMessages = [
-  'Email не может быть пустым.',
-  "Email должен содержать символ '@'.",
-  'Email должен содержать доменное имя (например, example.com).',
-  'Email не должен содержать пробелы.',
+  'Email cannot be empty.',
+  "Email must contain '@'.",
+  'Email must contain domain name (example.com).',
+  'Email must not contain spaces.',
 ];
 
 function validateEmail(email) {

@@ -4,7 +4,7 @@ import { useTheme } from '../../app/providers/ThemeProvider';
 import styles from './ThemeSwitch.module.css';
 import { Sun, Moon } from 'lucide-react';
 
-const ThemeSwitch = () => {
+const ThemeSwitch = ({ className }) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -13,7 +13,7 @@ const ThemeSwitch = () => {
       onClick={toggleTheme}
     >
       <div className={styles.iconContainer}>
-        <Sun className={`${styles.icon} ${theme === 'dark' ? styles.hidden : ''}`} />
+        <Sun className={`${styles.icon} ${theme === 'dark' ? styles.hidden : ''} ${className}`} />
         <Moon className={`${styles.icon} ${theme === 'dark' ? '' : styles.hidden}`} />
       </div>
     </button>

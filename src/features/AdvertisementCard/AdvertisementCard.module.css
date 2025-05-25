@@ -1,0 +1,13 @@
+.advertisementCard {
+  padding: 10px;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  border: black 1px solid;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+}
+.advertisementCard:hover {
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+}
