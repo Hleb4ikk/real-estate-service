@@ -8,9 +8,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <UserProvider>
-        <App />
-      </UserProvider>
+      <App />
     </ThemeProvider>
   </React.StrictMode>,
 );

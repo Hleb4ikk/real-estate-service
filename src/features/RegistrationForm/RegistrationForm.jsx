@@ -4,50 +4,58 @@ import Form from '../../shared/components/Form/Form';
 import Input from '../../shared/components/Input/Input';
 import SubmitButton from '../../shared/components/SubmitButton/SubmitButton';
 import { validateEmail, validatePassword } from '../../shared/lib/form-validation';
-import { useEffect, useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import Button from '../../shared/components/Button/Button';
+import { createUser } from '../../entities/user/api';
+import { useNavigate } from 'react-router-dom';
+import bcrypt from 'bcryptjs';
 
 const RegistrationForm = ({ handleLoginRedirect }) => {
   const [messages, setMessages] = useState(null);
-
+  const navigate = useNavigate();
   const passwordRef = useRef(null);
   const emailRef = useRef(null);
   const [role, setRole] = useState(null);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
+    event.preventDefault();
     const emailErrors = validateEmail(emailRef.current.value);
     const passwordErrors = validatePassword(emailRef.current.value, passwordRef.current.value);
     const roleErrors = !role ? ['Choose a role'] : null;
-    console.log(!role ? ['Choose a role'] : null);
     const mess = {};
 
     if (emailErrors) {
       mess.email = { errors: emailErrors };
-      event.preventDefault();
     }
     if (passwordErrors) {
       mess.password = { errors: passwordErrors };
-      event.preventDefault();
     }
     if (roleErrors) {
       mess.role = { errors: roleErrors };
-      event.preventDefault();
     }
-    if (mess?.email || mess?.password || mess?.role) {
+
+    const res = await createUser(emailRef.current.value, await bcrypt.hash(passwordRef.current.value, 10), role);
+    const data = await res.json();
+
+    const serverError = data.message;
+
+    if (res.ok) {
+      localStorage.setItem('user', JSON.stringify(data?.user));
+      navigate('/catalog');
+    } else {
+      mess.server = { error: serverError };
+    }
+    if (mess?.email || mess?.password || mess?.role || mess?.server) {
       setMessages(mess);
     }
   }
-
-  useEffect(() => {
-    document.getElementById('loginForm').addEventListener('submit', handleSubmit);
-    return () => document.getElementById('loginForm').removeEventListener('submit', handleSubmit);
-  }, [role]);
 
   return (
     <div className={`${styles.loginFormContainer}`}>
       <h1 className={styles.formName}>Sign Up</h1>
       <Form
-        id="loginForm"
+        onSubmit={handleSubmit}
+        id="registrationForm"
         className={styles.loginForm}
       >
         <div className={styles.inputsContainer}>
@@ -125,6 +133,7 @@ const RegistrationForm = ({ handleLoginRedirect }) => {
               ))}
             </ul>
           )}
+          {messages?.server?.error && <p className={styles.errorMessage}>{messages?.server?.error}</p>}
         </div>
         <div className={styles.bottomContainer}>
           <div className={styles.submitButtonContainer}>

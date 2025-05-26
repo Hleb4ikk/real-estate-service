@@ -5,17 +5,41 @@ import Input from '../../shared/components/Input/Input';
 import SubmitButton from '../../shared/components/SubmitButton/SubmitButton';
 import { useEffect, useState, useRef } from 'react';
 import Button from '../../shared/components/Button/Button';
+import { login } from '../../entities/user/api';
+import { useNavigate } from 'react-router-dom';
 
 const LoginForm = ({ handleRegisterRedirect }) => {
-  const [messages, setMessages] = useState(null);
+  const [message, setMessage] = useState(null);
 
   const passwordRef = useRef(null);
   const emailRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    if (passwordRef.current.value.length === 0 || emailRef.current.value.length === 0) {
+      return;
+    }
+
+    const res = await login(emailRef.current.value, passwordRef.current.value);
+    const data = await res.json();
+    console.log(data.message);
+
+    if (res.ok) {
+      localStorage.setItem('user', JSON.stringify(data?.user));
+      navigate('/catalog');
+    } else {
+      setMessage({ error: data.message });
+    }
+  }
 
   return (
     <div className={`${styles.loginFormContainer}`}>
       <h1 className={styles.formName}>Sign In</h1>
       <Form
+        onSubmit={handleSubmit}
         id="loginForm"
         className={styles.loginForm}
       >
@@ -26,13 +50,13 @@ const LoginForm = ({ handleRegisterRedirect }) => {
             type="email"
             className={styles.inputField}
           />
-
           <Input
             ref={passwordRef}
             placeholder="Password"
             type="password"
             className={styles.inputField}
           />
+          {message?.error && <p className={styles.errorMessage}>{message?.error}</p>}
         </div>
 
         <div className={styles.bottomContainer}>
