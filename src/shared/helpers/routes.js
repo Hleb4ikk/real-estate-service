@@ -6,6 +6,7 @@ import AuthenticationPage from '../../pages/AuthenticationPage/AuthenticationPag
 import ProfilePage from '../../pages/ProfilePage/ProfilePage';
 import SubmitPage from '../../pages/SubmitPage/SubmitPage';
 import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage';
+import AdvertisementPage from '../../pages/AdvertisementPage/AdvertisementPage';
 
 export const routes = [
   {
@@ -63,6 +64,14 @@ export const routes = [
     },
     path: '/submit',
     element: <SubmitPage />,
+  },
+  {
+    name: {
+      ru: 'Обьявление',
+      en: 'Advertisement',
+    },
+    path: '/advertisement/:id',
+    element: <AdvertisementPage />,
   },
   {
     name: {

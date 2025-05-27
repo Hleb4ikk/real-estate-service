@@ -7,5 +7,7 @@ const getSessionUser = () => {
     return null;
   }
 };
-
-export default getSessionUser;
+const deleteSession = () => {
+  localStorage.removeItem('user');
+};
+export { getSessionUser, deleteSession };

@@ -8,9 +8,7 @@ import AppLayout from '../layouts/AppLayout';
 import { UserProvider, useUser } from './providers/UserProvider';
 import PrivatePage from '../pages/PrivatePage/PrivatePage';
 import PublicPage from '../pages/PublicPage/PublicPage';
-import { User } from 'lucide-react';
-import getSessionUser from '../entities/user/user';
-import { useEffect, useState } from 'react';
+import { getSessionUser } from '../entities/user/user';
 
 const App = () => {
   return (
@@ -25,7 +23,7 @@ const App = () => {
                   path={path}
                   element={<PublicPage>{element}</PublicPage>}
                 />
-              ) : ['/catalog', '/agencies', '/contacts'].includes(path) ? (
+              ) : ['/catalog', '/agencies', '/contacts', '/advertisement/:id'].includes(path) ? (
                 <Route
                   key={path}
                   path={path}

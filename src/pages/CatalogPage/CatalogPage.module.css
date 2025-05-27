@@ -1,0 +1,11 @@
+.catalogContainer {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.catalogPageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

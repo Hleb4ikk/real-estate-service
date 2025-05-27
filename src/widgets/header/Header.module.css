@@ -36,3 +36,23 @@
   max-width: 1440px;
   margin: 0 auto;
 }
+
+.createAdButton {
+  border: black solid 1px;
+  padding: 0 20px;
+  height: 50px;
+  border-radius: 10px;
+  transition: all 0.15s;
+  font-weight: 700;
+  font-size: 18px;
+  white-space: nowrap;
+}
+.createAdButton:hover {
+  color: white;
+  background: black;
+}
+.createAdButton:active {
+  color: white;
+  background: #555;
+  border: #555 solid 1px;
+}

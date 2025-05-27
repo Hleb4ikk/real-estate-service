@@ -1,44 +1,66 @@
 import styles from './ProfilePage.module.css';
 
 import useTitleDivision from '../../shared/hooks/useTitleDivision';
-import Input from '../../shared/components/Input/Input';
-import SubmitBitton from '../../shared/components/SubmitButton/SubmitButton';
+
 import AdvertisementCard from '../../features/AdvertisementCard/AdvertisementCard';
+import { useEffect, useState } from 'react';
+import { useUser } from '../../app/providers/UserProvider';
+import { fetchAdvertisementsByEmail, fetchLikedAdvertisementsByEmail } from '../../entities/advertisement/api';
+
 export default function ProfilePage() {
   useTitleDivision('Profile');
+  const { user } = useUser();
+  const [advertisements, setAdvertisements] = useState([]);
+
+  useEffect(() => {
+    async function fetchAdvertisements() {
+      try {
+        const response =
+          (user.role === 'client' && (await fetchLikedAdvertisementsByEmail({ email: user.email }))) ||
+          (user.role === 'realtor' && (await fetchAdvertisementsByEmail({ email: user.email })));
+        if (!response.ok) throw new Error('Error');
+
+        const data = await response.json();
+        console.log(data.advertisements);
+        setAdvertisements(data.advertisements);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchAdvertisements();
+  }, []);
+
   return (
     <div className={styles.profilePageContainer}>
-      <section className={styles.editProfileSection}>
-        <h1 className={styles.sectionName}>Edit Profile</h1>
-        <div className={styles.editProfileFormContainer}>
-          <form className={styles.editProfileForm}>
-            <Input
-              type="email"
-              placeholder="Email"
-            />
-            <Input
-              type="password"
-              placeholder="Password"
-            />
-            <div className={styles.submitEditButtonContainer}>
-              <SubmitBitton>Save</SubmitBitton>
-            </div>
-          </form>
-        </div>
-      </section>
-      <section className={styles.listOfFavoriteAdvertisements}>
-        <h1 className={styles.sectionName}>Favorite Advertisements</h1>
-        <div className={styles.favoriteListContainer}>
-          <AdvertisementCard />
-          <AdvertisementCard />
-          <AdvertisementCard />
-          <AdvertisementCard />
-          <AdvertisementCard />
-          <AdvertisementCard />
-          <AdvertisementCard />
-          <AdvertisementCard />
-        </div>
-      </section>
+      {user.role === 'realtor' && (
+        <section>
+          <h1 className={styles.sectionName}>My Advertisements</h1>
+          <div className={styles.adsList}>
+            {advertisements.length !== 0 &&
+              advertisements.map((ad) => (
+                <AdvertisementCard
+                  key={ad.id}
+                  {...ad}
+                />
+              ))}
+          </div>
+        </section>
+      )}{' '}
+      {user.role === 'client' && (
+        <section>
+          <h1 className={styles.sectionName}>Favourite Advertisements</h1>
+          <div className={styles.adsList}>
+            {advertisements.length !== 0 &&
+              advertisements.map((ad) => (
+                <AdvertisementCard
+                  key={ad.id}
+                  {...ad}
+                />
+              ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }

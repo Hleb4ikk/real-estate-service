@@ -41,7 +41,7 @@ const RegistrationForm = ({ handleLoginRedirect }) => {
 
     if (res.ok) {
       localStorage.setItem('user', JSON.stringify(data?.user));
-      navigate('/catalog');
+      window.location.reload();
     } else {
       mess.server = { error: serverError };
     }

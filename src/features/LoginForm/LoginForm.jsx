@@ -14,8 +14,6 @@ const LoginForm = ({ handleRegisterRedirect }) => {
   const passwordRef = useRef(null);
   const emailRef = useRef(null);
 
-  const navigate = useNavigate();
-
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -25,11 +23,10 @@ const LoginForm = ({ handleRegisterRedirect }) => {
 
     const res = await login(emailRef.current.value, passwordRef.current.value);
     const data = await res.json();
-    console.log(data.message);
 
     if (res.ok) {
       localStorage.setItem('user', JSON.stringify(data?.user));
-      navigate('/catalog');
+      window.location.reload();
     } else {
       setMessage({ error: data.message });
     }
